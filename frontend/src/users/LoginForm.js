@@ -26,16 +26,14 @@ function LoginForm() {
                 },
                 body: JSON.stringify(credentials)
             });
-    
             const data = await response.json();
     
-        
-            if (response.ok) {  
-                setCurrentUser(data.user);
-                localStorage.setItem('token', data.token);
-                history.push(`/`);
+            if (response.status === 200) {
+                setCurrentUser(data.user)
+                localStorage.setItem('token', data.token)
+                history.push(`/`)
             } else {
-                setErrorMessage(data.message);
+                setErrorMessage(data.message)
             }
         } catch (error) {
             console.error('An error occurred:', error);
