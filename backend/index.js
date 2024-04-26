@@ -9,7 +9,6 @@ const app = express();
 // Express Settings
 app.use(cookieSession({
     name: 'session',
-    sameSite: 'strict',
     keys: [ process.env.SESSION_SECRET ],
     maxAge: 24 * 60 * 60 * 1000 // 24 hours
 }))
@@ -20,10 +19,7 @@ app.use(cors({
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-app.use(cors())
-app.use(express.static('public'))
-app.use(express.urlencoded({ extended: true }))
-app.use(bodyParser.json())
+
 
 // Controllers & Routes
 
