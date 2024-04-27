@@ -27,7 +27,8 @@ module.exports = (sequelize, DataTypes) => {
         'reviewer',
         'admin',
       ],
-    }
+    },
+    passwordDigest: DataTypes.STRING
   }, {
     sequelize,
     underscored: true,
